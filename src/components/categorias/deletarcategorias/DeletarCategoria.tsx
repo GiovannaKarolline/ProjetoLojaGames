@@ -107,25 +107,25 @@ function DeletarCategoria() {
 
 	return (
 		<div className="container w-full max-w-md px-4 pt-4 mx-auto md:pt-6">
-			<h1 className="py-4 text-3xl text-center md:text-4xl">
+			<h1 className="py-4 text-3xl text-center md:text-4xl text-white drop-shadow-md">
 				Deletar Categoria
 			</h1>
 
-			<p className="mb-4 text-base font-semibold text-center md:text-lg">
+			<p className="mb-4 text-base font-semibold text-center md:text-lg text-slate-200">
 				Você tem certeza de que deseja apagar a
 				categoria a seguir?
 			</p>
 
-			<div className="flex flex-col justify-between overflow-hidden border rounded-2xl">
-				<header className="px-4 py-2 text-lg font-bold text-white md:px-6 bg-violet-800 md:text-2xl">
+			<div className="flex flex-col justify-between overflow-hidden border border-white/20 rounded-2xl shadow-2xl bg-white/10 backdrop-blur-md text-white">
+				<header className="px-4 py-3 text-lg font-bold text-white md:px-6 bg-violet-900/80 md:text-2xl border-b border-white/20">
 					Categoria
 				</header>
 
-				<div className="h-full p-4 bg-white md:p-8">
-					<p className="text-xl md:text-3xl font-bold text-center">
+				<div className="h-full p-4 md:p-8 flex flex-col justify-center">
+					<p className="text-xl md:text-3xl font-bold text-center drop-shadow-md">
 						{categoria.tipo}
 					</p>
-					<p className="text-base text-gray-600 text-center mt-2">
+					<p className="text-base text-slate-300 text-center mt-2">
 						{categoria.descricao}
 					</p>
 				</div>
@@ -135,7 +135,7 @@ function DeletarCategoria() {
 						type="button"
 						onClick={cancelarExclusao}
 						disabled={isLoading}
-						className="w-full py-2 text-base bg-red-500 text-slate-100 hover:bg-red-600 disabled:bg-slate-400 md:text-lg"
+						className="w-full py-4 text-base bg-red-500/80 text-white hover:bg-red-500 disabled:bg-slate-400 md:text-lg transition-colors"
 					>
 						Não
 					</button>
@@ -144,7 +144,7 @@ function DeletarCategoria() {
 						type="button"
 						onClick={confirmarExclusao}
 						disabled={isLoading}
-						className="flex items-center justify-center w-full py-2 text-base bg-violet-600 text-slate-100 hover:bg-violet-800 disabled:bg-slate-400 md:text-lg"
+						className="flex items-center justify-center w-full py-4 text-base bg-amber-500 text-white hover:bg-amber-600 disabled:bg-slate-400 md:text-lg transition-colors"
 					>
 						{isLoading ? (
 							<ClipLoader
@@ -152,7 +152,7 @@ function DeletarCategoria() {
 								size={24}
 							/>
 						) : (
-							<span>Sim</span>
+							<span className="font-bold">Sim</span>
 						)}
 					</button>
 				</div>

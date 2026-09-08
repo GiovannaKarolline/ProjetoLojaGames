@@ -159,8 +159,8 @@ function FormCategoria() {
 	}
 
 	return (
-		<div className="container flex flex-col items-center justify-center px-2 pt-4 mx-auto">
-			<h1 className="my-8 text-3xl text-center md:text-4xl">
+		<div className="container flex flex-col items-center justify-center px-4 pt-12 pb-12 mx-auto md:min-h-[70vh]">
+			<h1 className="mb-6 text-3xl text-center text-white md:text-4xl drop-shadow-md">
 				{estaEditando
 					? "Editar Categoria"
 					: "Cadastrar Categoria"}
@@ -168,10 +168,10 @@ function FormCategoria() {
 
 			<form
 				onSubmit={salvarCategoria}
-				className="flex flex-col w-full max-w-md gap-4 px-2 md:max-w-1/2"
+				className="relative z-10 flex flex-col items-center justify-center w-full max-w-lg gap-4 px-6 py-10 shadow-2xl sm:px-8 bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 text-white"
 			>
-				<div className="flex flex-col gap-2">
-					<label htmlFor="tipo">Categoria</label>
+				<div className="flex flex-col w-full gap-2">
+					<label htmlFor="tipo" className="font-medium text-slate-200">Categoria</label>
 
 					<input
 						type="text"
@@ -187,12 +187,12 @@ function FormCategoria() {
 						}
 						disabled={isLoading}
 						maxLength={100}
-						className="p-2 text-base bg-white border-2 rounded border-violet-700 md:text-lg focus:outline-none focus:ring-2 focus:ring-violet-500"
+						className="w-full p-2 text-white transition-colors border rounded-lg border-white/20 bg-black/20 focus:outline-none focus:ring-2 focus:ring-amber-500 placeholder-slate-400"
 					/>
 				</div>
 
-				<div className="flex flex-col gap-2">
-					<label htmlFor="descricao">Descrição</label>
+				<div className="flex flex-col w-full gap-2">
+					<label htmlFor="descricao" className="font-medium text-slate-200">Descrição</label>
 
 					<input
 						type="text"
@@ -208,14 +208,14 @@ function FormCategoria() {
 						}
 						disabled={isLoading}
 						maxLength={100}
-						className="p-2 text-base bg-white border-2 rounded border-violet-700 md:text-lg focus:outline-none focus:ring-2 focus:ring-violet-500"
+						className="w-full p-2 text-white transition-colors border rounded-lg border-white/20 bg-black/20 focus:outline-none focus:ring-2 focus:ring-amber-500 placeholder-slate-400"
 					/>
 				</div>
 
 				<button
 					type="submit"
 					disabled={isLoading}
-					className="flex justify-center w-full py-2 mx-auto text-base rounded text-slate-100 bg-violet-600 hover:bg-violet-900 disabled:bg-violet-400 md:w-1/2 md:text-lg"
+					className="flex justify-center w-full py-3 mt-4 text-white transition-colors rounded-lg shadow-lg bg-amber-500 hover:bg-amber-600 disabled:bg-slate-500"
 				>
 					{isLoading ? (
 						<ClipLoader

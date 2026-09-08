@@ -6,11 +6,7 @@ function SearchForm() {
 		<form className="relative flex items-center w-full">
 			<div className="relative w-full flex items-center">
 				<input
-					className="w-full h-10 pl-4 pr-12 text-black bg-white rounded-lg shadow-sm
-                             border-2 border-transparent
-                             focus:outline-none focus:border-violet-500 focus:ring-2 focus:ring-violet-500/20
-                             placeholder:text-slate-400
-                             transition-all duration-200"
+					className="w-full h-10 pl-4 pr-12 text-white bg-white/10 border border-white/20 rounded-lg shadow-sm backdrop-blur-md placeholder-slate-300 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400 transition-all duration-200"
 					type="search"
 					placeholder="Buscar jogos..."
 					id="busca"

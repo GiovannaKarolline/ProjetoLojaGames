@@ -204,7 +204,7 @@ function FormProduto() {
 
 	return (
 		<div className="container flex flex-col items-center justify-center mx-auto my-4 md:min-h-[70vh] px-4 py-12">
-			<h1 className="text-3xl md:text-4xl text-center mb-6">
+			<h1 className="text-3xl md:text-4xl text-center mb-6 text-white drop-shadow-md">
 				{estaEditando
 					? "Editar Produto"
 					: "Cadastrar Produto"}
@@ -212,10 +212,10 @@ function FormProduto() {
 
 			<form
 				onSubmit={salvarProduto}
-				className="w-full max-w-lg flex flex-col gap-4"
+				className="relative z-10 flex flex-col items-center justify-center w-full max-w-lg gap-4 px-6 py-10 shadow-2xl sm:px-8 bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 text-white"
 			>
-				<div className="flex flex-col gap-2">
-					<label htmlFor="titulo" className="font-medium">
+				<div className="flex flex-col w-full gap-2">
+					<label htmlFor="titulo" className="font-medium text-slate-200">
 						Título do Produto
 					</label>
 					<input
@@ -229,12 +229,12 @@ function FormProduto() {
 						required
 						minLength={3}
 						maxLength={100}
-						className="border-2 border-violet-700 rounded p-2 bg-white text-base focus:outline-none focus:ring-2 focus:ring-violet-500"
+						className="w-full p-2 text-white border border-white/20 rounded-lg bg-black/20 focus:outline-none focus:ring-2 focus:ring-amber-500 placeholder-slate-400 transition-colors"
 					/>
 				</div>
 
-				<div className="flex flex-col gap-2">
-					<label htmlFor="descricao" className="font-medium">
+				<div className="flex flex-col w-full gap-2">
+					<label htmlFor="descricao" className="font-medium text-slate-200">
 						Descrição
 					</label>
 					<textarea
@@ -248,12 +248,12 @@ function FormProduto() {
 						minLength={3}
 						maxLength={100}
 						rows={3}
-						className="border-2 border-violet-700 rounded p-2 bg-white text-base focus:outline-none focus:ring-2 focus:ring-violet-500 resize-none"
+						className="w-full p-2 text-white border border-white/20 rounded-lg bg-black/20 focus:outline-none focus:ring-2 focus:ring-amber-500 placeholder-slate-400 transition-colors resize-none"
 					/>
 				</div>
 
-				<div className="flex flex-col gap-2">
-					<label htmlFor="preco" className="font-medium">
+				<div className="flex flex-col w-full gap-2">
+					<label htmlFor="preco" className="font-medium text-slate-200">
 						Preço (R$)
 					</label>
 					<NumericFormat
@@ -274,13 +274,13 @@ function FormProduto() {
 						prefix="R$ "
 						disabled={isLoading}
 						required
-						className="border-2 border-violet-700 rounded p-2 bg-white text-base focus:outline-none focus:ring-2 focus:ring-violet-500"
+						className="w-full p-2 text-white border border-white/20 rounded-lg bg-black/20 focus:outline-none focus:ring-2 focus:ring-amber-500 placeholder-slate-400 transition-colors"
 						placeholder="R$ 0,00"
 					/>
 				</div>
 
-				<div className="flex flex-col gap-2">
-					<label htmlFor="imagem" className="font-medium">
+				<div className="flex flex-col w-full gap-2">
+					<label htmlFor="imagem" className="font-medium text-slate-200">
 						Imagem do Produto
 					</label>
 					<input
@@ -293,12 +293,12 @@ function FormProduto() {
 						disabled={isLoading}
 						required
 						minLength={8}
-						className="border-2 border-violet-700 rounded p-2 bg-white text-base focus:outline-none focus:ring-2 focus:ring-violet-500"
+						className="w-full p-2 text-white border border-white/20 rounded-lg bg-black/20 focus:outline-none focus:ring-2 focus:ring-amber-500 placeholder-slate-400 transition-colors"
 					/>
 				</div>
 
-				<div className="flex flex-col gap-2">
-					<label htmlFor="categoria" className="font-medium">
+				<div className="flex flex-col w-full gap-2">
+					<label htmlFor="categoria" className="font-medium text-slate-200">
 						Categoria do Produto
 					</label>
 					<select
@@ -308,7 +308,7 @@ function FormProduto() {
 						onChange={atualizarCategoria}
 						disabled={isLoading}
 						required
-						className="p-2 bg-white border-2 rounded border-violet-700 focus:outline-none focus:ring-2 focus:ring-violet-500"
+						className="w-full p-2 text-white border border-white/20 rounded-lg bg-black/20 focus:outline-none focus:ring-2 focus:ring-amber-500 placeholder-slate-400 transition-colors [&>option]:bg-violet-950"
 					>
 						<option value={0} disabled>
 							Selecione uma Categoria
@@ -326,7 +326,7 @@ function FormProduto() {
 				</div>
 
 				<button
-					className="rounded text-slate-100 bg-violet-600 hover:bg-violet-900 disabled:bg-violet-400 w-full py-2 mt-2 flex justify-center items-center text-base transition-colors"
+					className="flex items-center justify-center w-full py-3 mt-4 text-base text-white transition-colors rounded-lg shadow-lg bg-amber-500 hover:bg-amber-600 disabled:bg-slate-500"
 					type="submit"
 					disabled={isLoading}
 				>

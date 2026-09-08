@@ -106,18 +106,17 @@ function DeletarProduto() {
 
 	return (
 		<div className="container w-full max-w-md mx-auto px-4 pt-20 md:pt-6">
-			<h1 className="text-3xl md:text-4xl text-center py-4">
+			<h1 className="text-3xl md:text-4xl text-center py-4 text-white drop-shadow-md">
 				Deletar Produto
 			</h1>
-			<p className="text-center font-semibold mb-4 text-base md:text-lg">
-				Você tem certeza de que deseja apagar o produto a
-				seguir?
+			<p className="text-center font-semibold mb-4 text-base md:text-lg text-slate-200">
+				Você tem certeza de que deseja apagar o produto a seguir?
 			</p>
-			<div className="border flex flex-col rounded-2xl overflow-hidden justify-between">
-				<header className="py-2 px-4 md:px-6 bg-violet-800 text-white font-bold text-lg md:text-2xl">
+			<div className="border border-white/20 flex flex-col rounded-2xl overflow-hidden justify-between shadow-2xl bg-white/10 backdrop-blur-md text-white">
+				<header className="py-3 px-4 md:px-6 bg-violet-900/80 text-white font-bold text-lg md:text-2xl border-b border-white/20">
 					Produto
 				</header>
-				<p className="p-4 md:p-8 text-xl md:text-3xl bg-white h-full">
+				<p className="p-4 md:p-8 text-xl md:text-3xl h-full drop-shadow-md">
 					{produto.titulo}
 				</p>
 				<div className="flex flex-row">
@@ -125,7 +124,7 @@ function DeletarProduto() {
 						type="button"
 						onClick={cancelarExclusao}
 						disabled={isLoading}
-						className="text-slate-100 bg-red-500 hover:bg-red-700 disabled:bg-slate-400 w-full py-2 text-base md:text-lg"
+						className="text-white bg-red-500/80 hover:bg-red-500 disabled:bg-slate-400 w-full py-4 text-base md:text-lg transition-colors"
 					>
 						Não
 					</button>
@@ -133,12 +132,12 @@ function DeletarProduto() {
 						type="button"
 						onClick={confirmarExclusao}
 						disabled={isLoading}
-						className="w-full text-slate-100 bg-violet-600 hover:bg-violet-800 disabled:bg-slate-400 flex items-center justify-center text-base md:text-lg"
+						className="w-full text-white bg-amber-500 hover:bg-amber-600 disabled:bg-slate-400 flex items-center justify-center text-base md:text-lg transition-colors"
 					>
 						{isLoading ? (
 							<ClipLoader color="#ffffff" size={24} />
 						) : (
-							<span>Sim</span>
+							<span className="font-bold">Sim</span>
 						)}
 					</button>
 				</div>

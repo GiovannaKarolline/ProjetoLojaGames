@@ -82,22 +82,19 @@ function Cadastro() {
 	}
 
 	return (
-		<div className="grid grid-cols-1 lg:grid-cols-2 min-h-screen place-items-center font-bold">
-			<div
-				className="bg-[url('/src/assets/cadastro-bg.jpg')]
-			lg:block hidden bg-no-repeat w-full min-h-screen bg-cover bg-center"
-			/>
+		<div className="flex items-center justify-center min-h-screen font-bold bg-center bg-cover bg-[url('/src/assets/cadastro-bg.jpg')] relative py-12">
+            <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
 
 			<form
 				onSubmit={cadastrarNovoUsuario}
-				className="flex justify-center items-center flex-col w-full max-w-md px-6 sm:px-8 py-10 lg:py-3 gap-3"
+				className="relative z-10 flex flex-col items-center justify-center w-full max-w-lg gap-4 px-6 py-10 shadow-2xl sm:px-8 bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 text-white"
 			>
-				<h2 className="text-violet-900 text-3xl sm:text-4xl lg:text-5xl text-center">
+				<h2 className="text-3xl text-center text-white sm:text-4xl lg:text-5xl drop-shadow-md mb-4">
 					Cadastrar
 				</h2>
 
 				<div className="flex flex-col w-full">
-					<label htmlFor="nome">Nome</label>
+					<label htmlFor="nome" className="text-slate-200 mb-1">Nome</label>
 					<input
 						type="text"
 						id="nome"
@@ -105,13 +102,13 @@ function Cadastro() {
 						placeholder="Nome"
 						value={usuario.nome}
 						onChange={atualizarEstado}
-						className="border-2 border-violet-700 rounded p-2 w-full focus:outline-none focus:ring-2 focus:ring-violet-500"
+						className="w-full p-2 text-white border border-white/20 rounded-lg bg-black/20 focus:outline-none focus:ring-2 focus:ring-amber-500 placeholder-slate-400 transition-colors"
 						required
 					/>
 				</div>
 
 				<div className="flex flex-col w-full">
-					<label htmlFor="usuario">Usuário</label>
+					<label htmlFor="usuario" className="text-slate-200 mb-1">Usuário</label>
 					<input
 						type="email"
 						id="usuario"
@@ -119,13 +116,13 @@ function Cadastro() {
 						placeholder="E-mail"
 						value={usuario.usuario}
 						onChange={atualizarEstado}
-						className="border-2 border-violet-700 rounded p-2 w-full focus:outline-none focus:ring-2 focus:ring-violet-500"
+						className="w-full p-2 text-white border border-white/20 rounded-lg bg-black/20 focus:outline-none focus:ring-2 focus:ring-amber-500 placeholder-slate-400 transition-colors"
 						required
 					/>
 				</div>
 
 				<div className="flex flex-col w-full">
-					<label htmlFor="foto">
+					<label htmlFor="foto" className="text-slate-200 mb-1">
 						Foto (URL) <span className="text-slate-400 font-normal">opcional</span>
 					</label>
 
@@ -136,12 +133,12 @@ function Cadastro() {
 						placeholder="https://..."
 						value={usuario.foto}
 						onChange={atualizarEstado}
-						className="border-2 border-violet-700 rounded p-2 w-full focus:outline-none focus:ring-2 focus:ring-violet-500"
+						className="w-full p-2 text-white border border-white/20 rounded-lg bg-black/20 focus:outline-none focus:ring-2 focus:ring-amber-500 placeholder-slate-400 transition-colors"
 					/>
 				</div>
 
 				<div className="flex flex-col w-full">
-					<label htmlFor="dataNascimento">Data de Nascimento</label>
+					<label htmlFor="dataNascimento" className="text-slate-200 mb-1">Data de Nascimento</label>
 
 					<input
 						type="date"
@@ -149,13 +146,13 @@ function Cadastro() {
 						name="dataNascimento"
 						value={usuario.dataNascimento}
 						onChange={atualizarEstado}
-						className="border-2 border-violet-700 rounded p-2 w-full focus:outline-none focus:ring-2 focus:ring-violet-500"
+						className="w-full p-2 text-white border border-white/20 rounded-lg bg-black/20 focus:outline-none focus:ring-2 focus:ring-amber-500 placeholder-slate-400 transition-colors [color-scheme:dark]"
 						required
 					/>
 				</div>
 
 				<div className="flex flex-col w-full">
-					<label htmlFor="senha">Senha</label>
+					<label htmlFor="senha" className="text-slate-200 mb-1">Senha</label>
 					<input
 						type="password"
 						id="senha"
@@ -163,13 +160,13 @@ function Cadastro() {
 						placeholder="Senha"
 						value={usuario.senha}
 						onChange={atualizarEstado}
-						className="border-2 border-violet-700 rounded p-2 w-full focus:outline-none focus:ring-2 focus:ring-violet-500"
+						className="w-full p-2 text-white border border-white/20 rounded-lg bg-black/20 focus:outline-none focus:ring-2 focus:ring-amber-500 placeholder-slate-400 transition-colors"
 						required
 					/>
 				</div>
 
 				<div className="flex flex-col w-full">
-					<label htmlFor="confirmarSenha">Confirmar Senha</label>
+					<label htmlFor="confirmarSenha" className="text-slate-200 mb-1">Confirmar Senha</label>
 
 					<input
 						type="password"
@@ -178,16 +175,16 @@ function Cadastro() {
 						placeholder="Confirmar Senha"
 						value={confirmarSenha}
 						onChange={(evento) => setConfirmarSenha(evento.target.value)}
-						className="border-2 border-violet-700 rounded p-2 w-full focus:outline-none focus:ring-2 focus:ring-violet-500"
+						className="w-full p-2 text-white border border-white/20 rounded-lg bg-black/20 focus:outline-none focus:ring-2 focus:ring-amber-500 placeholder-slate-400 transition-colors"
 						required
 					/>
 				</div>
 
-				<div className="flex flex-col sm:flex-row justify-around w-full gap-3 sm:gap-8">
+				<div className="flex flex-col w-full gap-3 mt-4 sm:flex-row justify-around">
 					<button
 						type="button"
-					onClick={() => navigate("/")}
-						className="rounded text-white bg-red-500 hover:bg-red-700 w-full sm:w-1/2 py-2"
+					    onClick={() => navigate("/")}
+						className="w-full py-3 text-white transition-colors rounded-lg bg-red-500/80 hover:bg-red-500 sm:w-1/2 shadow-lg backdrop-blur-sm"
 					>
 						Cancelar
 					</button>
@@ -195,7 +192,7 @@ function Cadastro() {
 					<button
 						type="submit"
 						disabled={isLoading}
-						className="rounded text-white bg-violet-600 hover:bg-violet-800 disabled:bg-violet-400 w-full sm:w-1/2 py-2 flex justify-center"
+						className="flex justify-center w-full py-3 text-white transition-colors rounded-lg bg-amber-500 hover:bg-amber-600 disabled:bg-slate-500 sm:w-1/2 shadow-lg"
 					>
 						{isLoading ? (
 							<ClipLoader color="#ffffff" size={24} />
