@@ -136,6 +136,5 @@ src/
 ---
 
 <div align="center">
-  <p>Feito com 💜 para os amantes de tecnologia e games.</p>
   <i>Projeto acadêmico desenvolvido durante o programa Generation Brasil.</i>
 </div>
