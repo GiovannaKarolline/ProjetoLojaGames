@@ -23,8 +23,9 @@ function FormProduto() {
 
 	const [produto, setProduto] = useState<Produto>({
 		id: 0,
-		nome: "",
-		foto: "",
+		titulo: "",
+		descricao: "",
+		imagem: "",
 		preco: 0,
 		categoria: {
 			id: 0,
@@ -118,16 +119,22 @@ function FormProduto() {
 	) {
 		evento.preventDefault()
 
-		const nomeTratado = produto.nome.trim()
-		const fotoTratada = produto.foto.trim()
+		const tituloTratado = produto.titulo.trim()
+		const descricaoTratada = produto.descricao.trim()
+		const imagemTratada = produto.imagem.trim()
 
-		if (nomeTratado.length < 3 || nomeTratado.length > 100) {
-			alert("O nome deve possuir entre 3 e 100 caracteres.")
+		if (tituloTratado.length < 3 || tituloTratado.length > 100) {
+			alert("O título deve possuir entre 3 e 100 caracteres.")
 			return
 		}
 
-		if (fotoTratada.length < 5 || fotoTratada.length > 100) {
-			alert("A URL da foto deve possuir entre 5 e 100 caracteres.")
+		if (descricaoTratada.length < 3 || descricaoTratada.length > 100) {
+			alert("A descrição deve possuir entre 3 e 100 caracteres.")
+			return
+		}
+
+		if (imagemTratada.length < 8) {
+			alert("A URL da imagem deve possuir pelo menos 8 caracteres.")
 			return
 		}
 
@@ -143,8 +150,9 @@ function FormProduto() {
 
 		const produtoParaEnviar: Produto = {
 			...produto,
-			nome: nomeTratado,
-			foto: fotoTratada,
+			titulo: tituloTratado,
+			descricao: descricaoTratada,
+			imagem: imagemTratada,
 			preco: Number(produto.preco),
 			categoria: {
 				id: produto.categoria.id,
@@ -205,21 +213,40 @@ function FormProduto() {
 				className="w-full max-w-lg flex flex-col gap-4"
 			>
 				<div className="flex flex-col gap-2">
-					<label htmlFor="nome" className="font-medium">
-						Nome do Produto
+					<label htmlFor="titulo" className="font-medium">
+						Título do Produto
 					</label>
 					<input
 						type="text"
-						placeholder="Insira aqui o nome do Produto"
-						name="nome"
-						id="nome"
-						value={produto.nome}
+						placeholder="Insira aqui o título do Produto"
+						name="titulo"
+						id="titulo"
+						value={produto.titulo}
 						onChange={atualizarCampo}
 						disabled={isLoading}
 						required
 						minLength={3}
 						maxLength={100}
 						className="border-2 border-violet-700 rounded p-2 bg-white text-base focus:outline-none focus:ring-2 focus:ring-violet-500"
+					/>
+				</div>
+
+				<div className="flex flex-col gap-2">
+					<label htmlFor="descricao" className="font-medium">
+						Descrição
+					</label>
+					<textarea
+						placeholder="Descreva o Produto"
+						name="descricao"
+						id="descricao"
+						value={produto.descricao}
+						onChange={atualizarCampo as unknown as React.ChangeEventHandler<HTMLTextAreaElement>}
+						disabled={isLoading}
+						required
+						minLength={3}
+						maxLength={100}
+						rows={3}
+						className="border-2 border-violet-700 rounded p-2 bg-white text-base focus:outline-none focus:ring-2 focus:ring-violet-500 resize-none"
 					/>
 				</div>
 
@@ -251,20 +278,19 @@ function FormProduto() {
 				</div>
 
 				<div className="flex flex-col gap-2">
-					<label htmlFor="foto" className="font-medium">
-						Foto do Produto
+					<label htmlFor="imagem" className="font-medium">
+						Imagem do Produto
 					</label>
 					<input
 						type="text"
-						placeholder="Adicione aqui a URL da foto do Produto"
-						name="foto"
-						id="foto"
-						value={produto.foto}
+						placeholder="Adicione aqui a URL da imagem do Produto"
+						name="imagem"
+						id="imagem"
+						value={produto.imagem}
 						onChange={atualizarCampo}
 						disabled={isLoading}
 						required
-						minLength={5}
-						maxLength={100}
+						minLength={8}
 						className="border-2 border-violet-700 rounded p-2 bg-white text-base focus:outline-none focus:ring-2 focus:ring-violet-500"
 					/>
 				</div>

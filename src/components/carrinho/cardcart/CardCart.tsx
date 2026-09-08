@@ -27,16 +27,16 @@ function CardCart({ item }: CardCartProps) {
 		<div className="flex flex-col gap-4 bg-violet-900 rounded-lg p-4 shadow-sm border border-violet-700 sm:flex-row">
 			<div className="w-full h-32 shrink-0 bg-violet-800 rounded-lg p-2 flex items-center justify-center sm:w-32">
 				<img
-					src={item.foto}
+					src={item.imagem}
 					className="max-h-full max-w-full object-contain"
-					alt={item.nome}
+					alt={item.titulo}
 				/>
 			</div>
 
 			<div className="grow flex flex-col justify-between">
 				<div>
 					<h3 className="font-semibold text-violet-100 mb-1">
-						{item.nome}
+						{item.titulo}
 					</h3>
 					<p className="text-sm text-violet-400 mb-2">
 						Categoria:{" "}
@@ -52,7 +52,7 @@ function CardCart({ item }: CardCartProps) {
 						<button
 							type="button"
 							onClick={() => removerItem(item.id)}
-							aria-label={`Diminuir quantidade de ${item.nome}`}
+							aria-label={`Diminuir quantidade de ${item.titulo}`}
 							className="p-2 hover:bg-violet-800 rounded-l-lg transition-colors"
 						>
 							<MinusIcon
@@ -68,7 +68,7 @@ function CardCart({ item }: CardCartProps) {
 						<button
 							type="button"
 							onClick={() => adicionarItem(item.id)}
-							aria-label={`Aumentar quantidade de ${item.nome}`}
+							aria-label={`Aumentar quantidade de ${item.titulo}`}
 							className="p-2 hover:bg-violet-800 rounded-r-lg transition-colors"
 						>
 							<PlusIcon
@@ -83,7 +83,7 @@ function CardCart({ item }: CardCartProps) {
 						onClick={() => removerProduto(item.id)}
 						className="p-2 text-red-400 hover:bg-violet-800 rounded-lg transition-colors"
 						title="Remover produto"
-						aria-label={`Remover ${item.nome} do carrinho`}
+						aria-label={`Remover ${item.titulo} do carrinho`}
 					>
 						<TrashIcon size={20} />
 					</button>

@@ -24,6 +24,7 @@ function FormCategoria() {
 	const [categoria, setCategoria] = useState<Categoria>({
 		id: 0,
 		tipo: "",
+		descricao: "",
 	})
 
 	const [isLoading, setIsLoading] =
@@ -82,6 +83,7 @@ function FormCategoria() {
 		evento.preventDefault()
 
 		const tipoTratado = categoria.tipo.trim()
+		const descricaoTratada = categoria.descricao.trim()
 
 		if (
 			tipoTratado.length < 3 ||
@@ -93,9 +95,20 @@ function FormCategoria() {
 			return
 		}
 
+		if (
+			descricaoTratada.length < 3 ||
+			descricaoTratada.length > 100
+		) {
+			alert(
+				"A descrição deve possuir entre 3 e 100 caracteres.",
+			)
+			return
+		}
+
 		const categoriaParaEnviar: Categoria = {
 			...categoria,
 			tipo: tipoTratado,
+			descricao: descricaoTratada,
 		}
 
 		setIsLoading(true)
@@ -170,6 +183,27 @@ function FormCategoria() {
 							setCategoria({
 								...categoria,
 								tipo: evento.target.value,
+							})
+						}
+						disabled={isLoading}
+						maxLength={100}
+						className="p-2 text-base bg-white border-2 rounded border-violet-700 md:text-lg focus:outline-none focus:ring-2 focus:ring-violet-500"
+					/>
+				</div>
+
+				<div className="flex flex-col gap-2">
+					<label htmlFor="descricao">Descrição</label>
+
+					<input
+						type="text"
+						placeholder="Descrição"
+						id="descricao"
+						name="descricao"
+						value={categoria.descricao}
+						onChange={(evento) =>
+							setCategoria({
+								...categoria,
+								descricao: evento.target.value,
 							})
 						}
 						disabled={isLoading}

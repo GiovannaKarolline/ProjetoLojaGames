@@ -20,6 +20,7 @@ function DeletarCategoria() {
 	const [categoria, setCategoria] = useState<Categoria>({
 		id: 0,
 		tipo: "",
+		descricao: "",
 	})
 
 	const [isLoading, setIsLoading] = useState(true)
@@ -120,9 +121,14 @@ function DeletarCategoria() {
 					Categoria
 				</header>
 
-				<p className="h-full p-4 text-xl bg-white md:p-8 md:text-3xl">
-					{categoria.tipo}
-				</p>
+				<div className="h-full p-4 bg-white md:p-8">
+					<p className="text-xl md:text-3xl font-bold text-center">
+						{categoria.tipo}
+					</p>
+					<p className="text-base text-gray-600 text-center mt-2">
+						{categoria.descricao}
+					</p>
+				</div>
 
 				<div className="flex flex-row">
 					<button

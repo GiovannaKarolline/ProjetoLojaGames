@@ -24,7 +24,7 @@ function CardProduto({ produto }: CardProdutoProps) {
 					<PencilIcon
 						size={24}
 						className="mr-1 hover:fill-violet-600"
-						aria-label={`Editar ${produto.nome}`}
+						aria-label={`Editar ${produto.titulo}`}
 					/>
 				</Link>
 
@@ -32,21 +32,24 @@ function CardProduto({ produto }: CardProdutoProps) {
 					<TrashIcon
 						size={24}
 						className="mr-1 hover:fill-red-700"
-						aria-label={`Deletar ${produto.nome}`}
+						aria-label={`Deletar ${produto.titulo}`}
 					/>
 				</Link>
 			</div>
 
 			<div className="py-4">
 				<img
-					src={produto.foto}
+					src={produto.imagem}
 					className="mx-auto mt-1 h-44 max-w-75"
-					alt={produto.nome}
+					alt={produto.titulo}
 				/>
 
 				<div className="p-4">
 					<p className="text-sm text-center uppercase">
-						{produto.nome}
+						{produto.titulo}
+					</p>
+					<p className="text-xs text-center text-gray-500 mb-2 px-2 line-clamp-2">
+						{produto.descricao}
 					</p>
 					<h3 className="text-xl font-bold text-center uppercase">
 						{precoFormatado}

@@ -18,8 +18,9 @@ function DeletarProduto() {
 
 	const [produto, setProduto] = useState<Produto>({
 		id: 0,
-		nome: "",
-		foto: "",
+		titulo: "",
+		descricao: "",
+		imagem: "",
 		preco: 0,
 		categoria: {
 			id: 0,
@@ -116,7 +117,7 @@ function DeletarProduto() {
 					Produto
 				</header>
 				<p className="p-4 md:p-8 text-xl md:text-3xl bg-white h-full">
-					{produto.nome}
+					{produto.titulo}
 				</p>
 				<div className="flex flex-row">
 					<button

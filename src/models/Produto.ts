@@ -2,8 +2,9 @@ import type Categoria from "./Categoria"
 
 export default interface Produto {
 	id: number
-	nome: string
-	foto: string
+	titulo: string
+	descricao: string
+	imagem: string
 	preco: number
 	categoria: Categoria
 }

@@ -15,9 +15,10 @@ function CardCategorias({
 				Categoria
 			</header>
 
-			<p className="p-8 text-3xl bg-white h-full">
-				{categoria.tipo}
-			</p>
+			<div className="p-8 bg-white h-full">
+				<p className="text-3xl font-bold text-center">{categoria.tipo}</p>
+				<p className="text-base text-gray-600 text-center mt-2">{categoria.descricao}</p>
+			</div>
 
 			<div className="flex">
 				<Link
