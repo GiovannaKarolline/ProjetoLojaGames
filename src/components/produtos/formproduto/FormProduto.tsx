@@ -30,6 +30,7 @@ function FormProduto() {
 		categoria: {
 			id: 0,
 			tipo: "",
+			descricao: "",
 		},
 	})
 	const [categorias, setCategorias] = useState<Categoria[]>([])
@@ -157,6 +158,7 @@ function FormProduto() {
 			categoria: {
 				id: produto.categoria.id,
 				tipo: produto.categoria.tipo,
+				descricao: produto.categoria.descricao || "",
 			},
 		}
 

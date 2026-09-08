@@ -25,6 +25,7 @@ function DeletarProduto() {
 		categoria: {
 			id: 0,
 			tipo: "",
+			descricao: "",
 		},
 	})
 	const [isLoading, setIsLoading] = useState(true)
